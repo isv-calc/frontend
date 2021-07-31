@@ -3,5 +3,5 @@ from ISVCalcApp import views
 
 urlpatterns = [
     path("", views.home, name="home"),
-    path('ISV/', views.pag_inicial, name="pag_inicial"),
+    path('isv/', views.pag_inicial, name="pag_inicial"),
 ]
