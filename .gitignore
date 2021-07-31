@@ -1,2 +1,7 @@
 /.vscode
 /env
+/Lib
+/Scripts
+*__pycache__
+pyvenv.cfg
+*.pyc
