@@ -4,7 +4,7 @@ from django.http import HttpResponse
 import datetime
 
 def home(request):
-    return HttpResponse("Hello, Django!")
+    return HttpResponse("Hello, Champ!")
 
 def pag_inicial(request):
     return render(
