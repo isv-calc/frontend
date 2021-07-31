@@ -158,9 +158,12 @@
       width: calc(100% - 6px);
       }
       }
+    #inicioDados {
+        margin-top: 100px;
+    }
     </style>
   </head>
-  <body>
+  <body style="padding: 20px;">
     <div class="form">
       <form action="/">
         <h1>Simulador ISV 2021</h1>
@@ -175,11 +178,17 @@
           <button type="submit" onclick="submitLink()" href="/">Submeter</button>
           <script>
             function submitLink() {
-              document.getElementById("demo").innerHTML = "Hello Dear Visitor!</br> We are happy that you've chosen our website to learn programming languages. We're sure you'll become one of the best programmers in your country. Good luck to you!";
+              document.getElementById("afterClick").style.display = "inline";
             }
           </script>
         </div>
       </form>
+      <div id="afterClick" style="display: none;">
+        <h1 id="inicioDados">Dados recebidos</h1>
+        <h2>TODO colocar aqui os dados</h2>
+        <br><br>
+        <h3>Total imposto: 500€</h3>
+    </div>
     </div>
   </body>
 </html>
