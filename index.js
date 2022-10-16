@@ -1,4 +1,5 @@
 function request(car) {
+    showResult();
     const urlmaster = "https://europe-west1-fire-functions-b6ad7.cloudfunctions.net/autoScout24?url="
     const requrl = urlmaster + car;
 
@@ -6,7 +7,6 @@ function request(car) {
     xmlHttp.open("GET", requrl, false);
     xmlHttp.send();
 
-    showResult();
     return JSON.parse(xmlHttp.responseText);
 }
 
@@ -18,6 +18,7 @@ function showResult() {
         x.style.display = "none";
     }
 }
+
 function fillCarDetails(car) {
     const carName = document.getElementById("car-name");
     carName.textContent = car.brand + " " + car.model;
@@ -34,5 +35,6 @@ if (car === "" || car === null) {
 } else {
     let carResult = request(car);
     console.log(carResult);
+    showResult();
     fillCarDetails(carResult);
 }
