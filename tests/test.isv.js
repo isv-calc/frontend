@@ -9,7 +9,7 @@ describe('Test ISV Calculations', () => {
             displacement: 998,
             emissions: 94,
             fuel: 'Electric/Gasoline',
-            isWltp: undefined,
+            isWltp: true,
             mileage: 5000,
             model: 'Fiesta',
             month: 3,
