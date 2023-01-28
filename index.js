@@ -95,7 +95,7 @@ function getCO2ISVvalue(car) {
 
     baseValue = applyYearsDiscountCO2(baseValue, car);
 
-    console.log("C02 Value: " + baseValue);
+    console.log("C02 Value after year discount: " + baseValue);
 
     return baseValue;
 }
@@ -204,28 +204,55 @@ function applyYearsDiscountDisplacement(baseValue, car) {
 
 function applyYearsDiscountCO2(baseValue, car) {
     const years = getYearsOld(car.month, car.year)
+    const negativeValue = baseValue >= 0 ? false : true
     // Every car for autoscout24 is from Europe, so no need to add complexity here
-    if (years < 2) {
-        return baseValue * (1 - 0.10);
-    } else if (years < 4) {
-        return baseValue * (1 - 0.20);
-    } else if (years < 6) {
-        return baseValue * (1 - 0.28);
-    } else if (years < 7) {
-        return baseValue * (1 - 0.35);
-    } else if (years < 9) {
-        return baseValue * (1 - 0.43);
-    } else if (years < 10) {
-        return baseValue * (1 - 0.52);
-    } else if (years < 12) {
-        return baseValue * (1 - 0.60);
-    } else if (years < 13) {
-        return baseValue * (1 - 0.65);
-    } else if (years < 14) {
-        return baseValue * (1 - 0.70);
-    } else if (years < 15) {
-        return baseValue * (1 - 0.75);
+    if (negativeValue) {
+        if (years < 2) {
+            return baseValue * (1 + 0.10);
+        } else if (years < 4) {
+            return baseValue * (1 + 0.20);
+        } else if (years < 6) {
+            return baseValue * (1 + 0.28);
+        } else if (years < 7) {
+            return baseValue * (1 + 0.35);
+        } else if (years < 9) {
+            return baseValue * (1 + 0.43);
+        } else if (years < 10) {
+            return baseValue * (1 + 0.52);
+        } else if (years < 12) {
+            return baseValue * (1 + 0.60);
+        } else if (years < 13) {
+            return baseValue * (1 + 0.65);
+        } else if (years < 14) {
+            return baseValue * (1 + 0.70);
+        } else if (years < 15) {
+            return baseValue * (1 + 0.75);
+        } else {
+            return baseValue * (1 + 0.8);
+        }
     } else {
-        return baseValue * (1 - 0.8);
+        if (years < 2) {
+            return baseValue * (1 - 0.10);
+        } else if (years < 4) {
+            return baseValue * (1 - 0.20);
+        } else if (years < 6) {
+            return baseValue * (1 - 0.28);
+        } else if (years < 7) {
+            return baseValue * (1 - 0.35);
+        } else if (years < 9) {
+            return baseValue * (1 - 0.43);
+        } else if (years < 10) {
+            return baseValue * (1 - 0.52);
+        } else if (years < 12) {
+            return baseValue * (1 - 0.60);
+        } else if (years < 13) {
+            return baseValue * (1 - 0.65);
+        } else if (years < 14) {
+            return baseValue * (1 - 0.70);
+        } else if (years < 15) {
+            return baseValue * (1 - 0.75);
+        } else {
+            return baseValue * (1 - 0.8);
+        }
     }
 }
