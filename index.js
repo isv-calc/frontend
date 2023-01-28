@@ -85,10 +85,10 @@ function getCO2ISVvalue(car) {
     let baseValue = 0;
 
     // Get Base Value
-    if (car.fuel == "Gasoline") {
+    if (car.fuel.includes("Gasoline")) {
         baseValue = getCO2ISVvalueGasoline(baseValue, car);
     }
-    else if (car.fuel == "Diesel") {
+    else if (car.fuel.includes("Diesel")) {
         baseValue = getCO2ISVvalueDiesel(baseValue, car);
     }
     console.log("C02 Value: " + baseValue);
@@ -103,36 +103,36 @@ function getCO2ISVvalue(car) {
 function getCO2ISVvalueGasoline(baseValue, car) {
     if (car.isWltp) {
         if (car.emissions <= 110)
-            baseValue = (car.emissions * 0.40) - 39.00;
+            baseValue = (car.emissions * 0.42) - 40.97;
         else if (car.emissions <= 115)
-            baseValue = (car.emissions * 1.00) - 105.00;
+            baseValue = (car.emissions * 1.05) - 110.29;
         else if (car.emissions <= 120)
-            baseValue = (car.emissions * 1.25) - 134.00;
+            baseValue = (car.emissions * 1.31) - 140.75;
         else if (car.emissions <= 130)
-            baseValue = (car.emissions * 4.78) - 561.40;
+            baseValue = (car.emissions * 5.02) - 589.69;
         else if (car.emissions <= 145)
-            baseValue = (car.emissions * 5.79) - 691.55;
+            baseValue = (car.emissions * 6.08) - 726.41;
         else if (car.emissions <= 175)
-            baseValue = (car.emissions * 37.66) - 5276.50;
+            baseValue = (car.emissions * 39.56) - 5542.44;
         else if (car.emissions <= 195)
-            baseValue = (car.emissions * 46.58) - 6571.10;
+            baseValue = (car.emissions * 48.93) - 6902.28;
         else if (car.emissions <= 235)
-            baseValue = (car.emissions * 175.00) - 31000.00;
+            baseValue = (car.emissions * 183.82) - 32562.40;
         else
-            baseValue = (car.emissions * 212.00) - 38000.00;
+            baseValue = (car.emissions * 222.68) - 39915.20;
     } else {
         if (car.emissions <= 99)
-            baseValue = (car.emissions * 4.19) - 387.16;
+            baseValue = (car.emissions * 4.40) - 406.67;
         else if (car.emissions <= 115)
-            baseValue = (car.emissions * 7.33) - 680.91;
+            baseValue = (car.emissions * 7.70) - 715.23;
         else if (car.emissions <= 145)
-            baseValue = (car.emissions * 47.65) - 5353.01;
+            baseValue = (car.emissions * 50.06) - 5622.80;
         else if (car.emissions <= 175)
-            baseValue = (car.emissions * 55.52) - 6473.88;
+            baseValue = (car.emissions * 58.32) - 6800.16;
         else if (car.emissions <= 195)
-            baseValue = (car.emissions * 141.42) - 21422.47;
+            baseValue = (car.emissions * 148.54) - 22502.16;
         else
-            baseValue = (car.emissions * 186.47) - 30274.29;
+            baseValue = (car.emissions * 195.86) - 31800.11;
     }
     return baseValue;
 }
